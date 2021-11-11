@@ -1,17 +1,22 @@
-import React from "react";
-import { ITransaction } from "../Bank/Bank";
-import Transaction from "../Transaction/Transaction";
+import React, { useMemo } from "react";
+import Transaction, { ITransaction } from "../Transaction/Transaction";
 
-export interface TransactionsProps extends React.ComponentPropsWithoutRef<any> {
+export interface ITransactions{
     transactions: ITransaction[]
 }
 
+interface TransactionsProps extends ITransactions ,React.ComponentPropsWithoutRef<any> {}
+
 const Transactions = ({ transactions }: TransactionsProps) => {
+
+    const transactionsUI = useMemo(() => {
+        return transactions.map((transaction, index) => <Transaction key={index}  {...transaction}></Transaction>)
+    }, [transactions])
 
     return <>
 
         {
-            transactions.map((transaction,index) => <Transaction key={index}  {...transaction}></Transaction>)
+            transactionsUI
         }
 
     </>

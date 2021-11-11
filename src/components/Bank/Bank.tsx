@@ -1,13 +1,10 @@
 import { useCallback, useState } from 'react';
 import useBank from '../../hooks/useBank'
+import { ITransaction } from '../Transaction/Transaction';
 import Transactions from '../Transactions/Transactions';
 import './Bank.css'
 
-export interface ITransaction {
-    date: Date;
-    amount: number;
-    transactionType: string;
-}
+
 
 const Bank = () => {
 

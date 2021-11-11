@@ -1,5 +1,10 @@
-import { ITransaction } from '../Bank/Bank'
 import './Transaction.css'
+
+export interface ITransaction {
+    date: Date;
+    amount: number;
+    transactionType: string;
+}
 
 interface TransactionProps extends ITransaction, React.ComponentPropsWithoutRef<any> {}
 
